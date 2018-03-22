@@ -163,7 +163,7 @@ def train():
                                                                             batch_size)
                 batch_index += 1
     
-                sess.run(training_op, feed_dict={X: X_batch, y: y_batch})
+                sess.run(training_op, feed_dict={X: X_batch, y: y_batch, training: True})
     
             acc_train = accuracy.eval(feed_dict={X: X_batch, y: y_batch})
             acc_test = accuracy.eval(feed_dict={X: test_images, y: test_labels})
