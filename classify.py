@@ -14,9 +14,6 @@ from __future__ import absolute_import, division, print_function
 import numpy as np
 import tensorflow as tf
 from keras.datasets import cifar10
-
-
-
 import matplotlib
 import matplotlib.pyplot as plt
 
@@ -56,7 +53,6 @@ def initialize_parameters():
     height = 32
     width = 32
     channels = 3
-    n_inputs = height * width
     X = tf.placeholder(tf.float32, shape=[None,  height, width, channels], name="X")
     
     y = tf.placeholder(tf.int32, shape=[None], name="y")
@@ -67,9 +63,6 @@ def initialize_parameters():
 
 
 def get_next_batch(features, labels, train_size, batch_index, batch_size):
-    training_images = features[:train_size,:,:]
-    training_labels = labels[:train_size]
-    
     start_index = batch_index * batch_size
     end_index = start_index + batch_size
 
